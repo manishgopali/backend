@@ -1,0 +1,20 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "codepaths",
+        "Gopali",
+        "Goplai",
+        "Manish",
+        "Middlewares",
+        "pino",
+        "tabwidth",
+        "todos"
+    ],
+    "[prisma]": {
+        "editor.defaultFormatter": "Prisma.prisma"
+    }
+}
