@@ -1,9 +1,20 @@
-# STAGE: Development
-FROM node:14-alpine3.13 AS dev
-RUN apk update && apk add bash && apk add make && apk add python3
-EXPOSE 3000
+# Use an official Node.js runtime as the base image
+FROM node:14-alpine
+
+# Set the working directory inside the container
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install
-COPY . /app/
-CMD ["npm", "run", "dev"]
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install the dependencies
+RUN npm ci --only=production
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port that the application will listen on
+EXPOSE 3000
+
+# Define the command to run the application
+CMD ["npm", "run", "start"]
